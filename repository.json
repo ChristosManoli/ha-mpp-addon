@@ -1,0 +1,5 @@
+{
+  "name": "Voltronic / MPP Solar MQTT Bridge (custom)",
+  "url": "https://github.com/ChristosManoli/ha-voltronic2mqtt-addon",
+  "maintainer": "Christos Manoli <cmanoli74@gmail.com>"
+}

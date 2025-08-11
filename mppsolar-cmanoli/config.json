@@ -1,0 +1,40 @@
+{
+  "name": "MPP Solar Voltronic to MQTT",
+  "version": "1.0.0",
+  "slug": "mppsolar-cmanoli",
+  "description": "Publishes data from MPP Solar / Voltronic MPI inverters to MQTT via HID (/dev/hidrawX).",
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armv7",
+    "armhf",
+    "i386"
+  ],
+  "startup": "services",
+  "boot": "auto",
+  "map": [
+    "config:rw"
+  ],
+  "options": {
+    "port": "/dev/hidraw0",
+    "protocol": "PI41",
+    "mqtt_broker": "192.168.10.117",
+    "mqtt_user": "your_mqtt_user",
+    "mqtt_pass": "your_mqtt_pass",
+    "mqtt_prefix": "inverter",
+    "interval": 30
+  },
+  "schema": {
+    "port": "str",
+    "protocol": "str",
+    "mqtt_broker": "str",
+    "mqtt_user": "str",
+    "mqtt_pass": "str",
+    "mqtt_prefix": "str",
+    "interval": "int"
+  },
+  "devices": [
+    "/dev/hidraw0:/dev/hidraw0:rwm"
+  ],
+  "privileged": true
+}
