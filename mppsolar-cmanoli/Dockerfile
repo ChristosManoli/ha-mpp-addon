@@ -1,16 +1,31 @@
-FROM python:3.11-slim
+# Build argument for Home Assistant base image (multi-arch support)
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:14.2.1
+FROM ${BUILD_FROM}
 
+# Set environment to avoid interactive prompts
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends build-essential libusb-1.0-0-dev \
-    && rm -rf /var/lib/apt/lists/*
 
-RUN pip install --no-cache-dir mpp-solar paho-mqtt
+# Install system dependencies
+RUN apk add --no-cache \
+        build-base \
+        libusb \
+        libusb-dev \
+        python3 \
+        py3-pip
 
+# Install Python dependencies
+RUN pip3 install --no-cache-dir \
+        mpp-solar \
+        paho-mqtt
+
+# Copy add-on files
 COPY run.sh /run.sh
 COPY voltronic_entry.py /voltronic_entry.py
-RUN chmod +x /run.sh
 
+# Ensure scripts are executable
+RUN chmod a+x /run.sh /voltronic_entry.py
+
+# Map /data for HA add-on options
 VOLUME ["/data"]
 
-CMD ["/run.sh"]
+# s6-overlay handles the startup, so no CMD override is needed
