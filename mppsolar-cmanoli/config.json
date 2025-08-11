@@ -1,5 +1,5 @@
 {
-  "name": "MPP Solar Voltronic to MQTT",
+  "name": "MPP to MQTT",
   "version": "1.0.0",
   "slug": "mppsolar-cmanoli",
   "description": "Publishes data from MPP Solar / Voltronic MPI inverters to MQTT via HID (/dev/hidrawX).",
