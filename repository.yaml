@@ -1,2 +1,3 @@
-name: "MPP to MQTT"
+name: "MPP to MQTT Add-on Repository"
 url: "https://github.com/ChristosManoli/ha-mpp-addon"
+maintainer: "Christos Manoli <cmanoli74@gmail.com>"
