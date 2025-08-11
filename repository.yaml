@@ -1,5 +1,2 @@
-{
-  "name": "MPP to MQTT",
-  "url": "https://github.com/ChristosManoli/ha-mpp-addon",
-  "maintainer": "Christos Manoli <cmanoli74@gmail.com>"
-}
+name: "MPP to MQTT"
+url: "https://github.com/ChristosManoli/ha-mpp-addon"
